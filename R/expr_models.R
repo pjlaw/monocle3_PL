@@ -125,11 +125,11 @@ fit_model_helper <- function(x,
   # FIXME: should we be using this here?
   # x <- x + pseudocount
   if (expression_family %in% c("negbinomial", "poisson", "zinegbinomial",
-                               "zipoisson", "quasipoisson")) {
+                               "zipoisson")) {
     x <- x / Size_Factor
     f_expression <- round(x)
   }
-  else if (expression_family %in% c("binomial", "gaussian")) {
+  else if (expression_family %in% c("binomial", "gaussian", "quasipoisson")) {
     f_expression <- x
   }
   else {
